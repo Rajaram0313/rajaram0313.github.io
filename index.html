@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rajaram S — HRIS Analyst | HRMS Application Support</title>
+<meta name="description" content="Rajaram S — HRIS Analyst & HRMS Application Support specialist. Payroll, Time Tracking, Time Off & Absence, Employee Lifecycle, incident management and Workday HCM.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #0f0e0d;
+  --paper: #f5f0e8;
+  --accent: #c0392b;
+  --accent2: #2c3e50;
+  --muted: #7a7068;
+  --rule: #d4cfc6;
+  --card: #fff;
+  --tag-bg: #eae5dc;
+  --teal: #0e8a6e;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 3rem;
+  background: rgba(245,240,232,0.93);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--rule);
+}
+.nav-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--ink);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+.nav-links { display: flex; gap: 2rem; align-items: center; }
+.nav-links a {
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--accent); }
+.nav-resume {
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  padding: 0.4rem 1rem;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+.nav-resume:hover { background: var(--accent); color: #fff; }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 8rem 3rem 3rem;
+  position: relative;
+  overflow: hidden;
+}
+.hero-rule {
+  position: absolute;
+  top: 0; left: 3rem; right: 3rem;
+  height: 3px;
+  background: var(--accent);
+  transform-origin: left;
+  animation: scaleIn 1s cubic-bezier(0.77,0,0.175,1) both;
+}
+@keyframes scaleIn { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+.hero-tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+  animation: fadeUp 0.8s 0.3s both;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.hero-tag::before {
+  content: '';
+  width: 7px; height: 7px;
+  background: var(--teal);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(1.4)} }
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3rem, 7.6vw, 6.4rem);
+  font-weight: 900;
+  line-height: 1.0;
+  color: var(--ink);
+  animation: fadeUp 0.8s 0.5s both;
+}
+.hero h1 em { font-style: italic; color: var(--accent); }
+
+.hero-role {
+  font-family: 'DM Mono', monospace;
+  font-size: clamp(0.82rem, 1.6vw, 0.98rem);
+  color: var(--accent2);
+  margin-top: 1.1rem;
+  letter-spacing: 0.02em;
+  animation: fadeUp 0.8s 0.6s both;
+}
+.hero-role .sep { color: var(--rule); margin: 0 0.6rem; }
+
+.hero-sub {
+  max-width: 600px;
+  font-size: 1.05rem;
+  color: var(--muted);
+  margin-top: 1.4rem;
+  font-weight: 300;
+  animation: fadeUp 0.8s 0.7s both;
+  line-height: 1.75;
+}
+
+.hero-cta {
+  margin-top: 2.2rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  animation: fadeUp 0.8s 0.9s both;
+}
+.btn {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 2px solid var(--ink);
+  color: var(--ink);
+  background: transparent;
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+}
+.btn:hover { background: var(--ink); color: var(--paper); }
+.btn.filled { background: var(--accent); border-color: var(--accent); color: #fff; }
+.btn.filled:hover { background: var(--ink); border-color: var(--ink); }
+
+.hero-chips {
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  animation: fadeUp 0.8s 1.05s both;
+}
+.hero-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.76rem;
+  padding: 0.5rem 0.85rem;
+  background: var(--card);
+  border: 1px solid var(--rule);
+  color: var(--ink);
+  text-decoration: none;
+  transition: border-color 0.2s, color 0.2s;
+}
+.hero-chip:hover { border-color: var(--accent); color: var(--accent); }
+.hero-chip.highlight { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+.hero-decoration {
+  position: absolute;
+  right: 3rem; top: 50%;
+  transform: translateY(-50%);
+  font-family: 'Playfair Display', serif;
+  font-size: 16rem;
+  font-weight: 900;
+  color: rgba(192,57,43,0.055);
+  line-height: 1;
+  user-select: none;
+  pointer-events: none;
+  animation: fadeUp 1s 0.2s both;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── STATS STRIP ── */
+.stats-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  background: var(--card);
+}
+.stat-item {
+  padding: 2rem 1.5rem;
+  text-align: center;
+  border-right: 1px solid var(--rule);
+  position: relative;
+}
+.stat-item:last-child { border-right: none; }
+.stat-item::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s;
+}
+.stat-item:hover::before { transform: scaleX(1); }
+.stat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: var(--accent);
+  line-height: 1;
+}
+.stat-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.66rem;
+  color: var(--muted);
+  margin-top: 0.5rem;
+  letter-spacing: 0.03em;
+}
+
+/* ── DIVIDER ── */
+.divider { border: none; border-top: 1px solid var(--rule); margin: 0 3rem; }
+
+/* ── SECTIONS ── */
+section { padding: 5.5rem 3rem; }
+
+.section-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.2rem;
+}
+.section-label::after {
+  content: '';
+  flex: 1;
+  max-width: 80px;
+  height: 1px;
+  background: var(--accent);
+}
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+.sec-desc { color: var(--muted); max-width: 640px; margin-bottom: 2.5rem; font-size: 0.98rem; }
+
+/* ── SKILLS (dark, inverted) ── */
+#skills { background: var(--ink); color: var(--paper); }
+#skills .section-label,
+#skills .sec-desc { color: rgba(245,240,232,0.6); }
+#skills .section-label { color: #e0685a; }
+#skills .section-label::after { background: #e0685a; }
+#skills h2 { color: var(--paper); }
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1rem;
+}
+.skill-group {
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 1.6rem;
+  position: relative;
+  transition: border-color 0.3s;
+}
+.skill-group:hover { border-color: var(--accent); }
+.skill-group-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--paper);
+  margin-bottom: 0.3rem;
+}
+.skill-group-sub {
+  font-size: 0.82rem;
+  color: rgba(245,240,232,0.55);
+  margin-bottom: 1rem;
+}
+.skill-tags { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+.skill-tag {
+  font-size: 0.76rem;
+  padding: 0.28rem 0.7rem;
+  background: rgba(255,255,255,0.07);
+  color: rgba(245,240,232,0.85);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.skill-note {
+  margin-top: 1.5rem;
+  border: 1px dashed rgba(224,104,90,0.5);
+  background: rgba(224,104,90,0.07);
+  padding: 1.4rem 1.6rem;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+.skill-note .tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: #e0685a;
+  color: #fff;
+  padding: 0.2rem 0.55rem;
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+}
+.skill-note h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  color: var(--paper);
+  margin-bottom: 0.4rem;
+}
+.skill-note p { font-size: 0.86rem; color: rgba(245,240,232,0.65); }
+
+/* ── EXPERIENCE ── */
+.exp-timeline { position: relative; margin-top: 1.5rem; }
+.exp-timeline::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 2px;
+  background: var(--rule);
+}
+.exp-item { padding-left: 2.5rem; margin-bottom: 3.5rem; position: relative; }
+.exp-item:last-child { margin-bottom: 0; }
+.exp-item::before {
+  content: '';
+  position: absolute;
+  left: -5px; top: 8px;
+  width: 12px; height: 12px;
+  background: var(--accent);
+  border-radius: 50%;
+}
+.exp-period {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: var(--teal);
+  font-weight: 500;
+  margin-bottom: 0.3rem;
+}
+.exp-role {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.15rem;
+}
+.exp-company { font-size: 0.88rem; color: var(--accent); font-weight: 500; margin-bottom: 0.6rem; }
+.exp-context {
+  font-size: 0.85rem;
+  color: var(--muted);
+  font-style: italic;
+  margin: 0.8rem 0 1.4rem;
+  padding-left: 0.75rem;
+  border-left: 2px solid var(--rule);
+}
+.exp-subhead {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent2);
+  margin: 1.4rem 0 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.exp-subhead:first-of-type { margin-top: 0; }
+.exp-points { list-style: none; }
+.exp-points li {
+  font-size: 0.9rem;
+  color: var(--muted);
+  padding: 0.3rem 0;
+  padding-left: 1.1rem;
+  position: relative;
+  line-height: 1.65;
+}
+.exp-points li::before { content: '—'; position: absolute; left: 0; color: var(--accent); }
+
+/* ── ACHIEVEMENTS ── */
+.achieve-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1rem;
+}
+.achieve-card {
+  background: var(--card);
+  border: 1px solid var(--rule);
+  padding: 1.8rem;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.achieve-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(15,14,13,0.1); }
+.achieve-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s;
+}
+.achieve-card:hover::after { transform: scaleX(1); }
+.achieve-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.4rem;
+  font-weight: 900;
+  color: var(--accent);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+.achieve-card p { font-size: 0.86rem; color: var(--muted); }
+
+.achieve-list {
+  list-style: none;
+  margin-top: 2.5rem;
+  display: grid;
+  gap: 0.9rem;
+}
+.achieve-list li {
+  display: flex;
+  gap: 0.9rem;
+  align-items: flex-start;
+  font-size: 0.92rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.achieve-list li svg { flex-shrink: 0; width: 18px; height: 18px; margin-top: 3px; color: var(--teal); }
+
+/* ── BACKGROUND (cert / education / languages) ── */
+#background { background: var(--paper); }
+.bg-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 1.5rem; margin-top: 1rem; }
+.edu-box { padding: 1.6rem; background: var(--card); border: 1px solid var(--rule); }
+.edu-box + .edu-box { margin-top: 1rem; }
+.edu-box-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.64rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.5rem;
+}
+.edu-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; margin-bottom: 0.2rem; }
+.edu-meta { font-size: 0.86rem; color: var(--accent); font-weight: 500; margin-bottom: 0.15rem; }
+.edu-detail { font-size: 0.82rem; color: var(--muted); }
+.edu-box p.edu-desc { font-size: 0.86rem; color: var(--muted); margin-top: 0.7rem; }
+
+.lang-panel { padding: 1.6rem; background: var(--card); border: 1px solid var(--rule); align-self: start; }
+.lang-panel .edu-box-label { margin-bottom: 1rem; }
+.lang-row {
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 0.94rem; padding: 0.7rem 0; border-bottom: 1px solid var(--rule);
+}
+.lang-row:last-child { border-bottom: none; }
+.lang-tag {
+  font-family: 'DM Mono', monospace; font-size: 0.66rem; letter-spacing: 0.08em;
+  color: var(--muted);
+}
+
+/* ── CONTACT ── */
+#contact { background: var(--ink); color: var(--paper); }
+#contact h2 { color: var(--paper); }
+#contact .section-label { color: #e0685a; }
+#contact .section-label::after { background: #e0685a; }
+#contact .contact-sub { color: rgba(245,240,232,0.65); font-size: 1rem; margin-bottom: 2.5rem; max-width: 520px; }
+
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.contact-item {
+  display: flex; gap: 1rem; align-items: flex-start;
+  padding: 1.4rem; border: 1px solid rgba(255,255,255,0.1);
+  transition: border-color 0.3s;
+}
+.contact-item:hover { border-color: var(--accent); }
+.contact-icon { font-size: 1.4rem; }
+.contact-label {
+  font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.15em;
+  text-transform: uppercase; color: #e0685a; margin-bottom: 0.25rem;
+}
+.contact-value { font-size: 0.95rem; color: rgba(245,240,232,0.9); }
+.contact-value a { color: inherit; text-decoration: none; }
+.contact-value a:hover { color: var(--accent); }
+
+/* ── FOOTER ── */
+footer {
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;
+  padding: 1.8rem 3rem;
+  background: var(--ink);
+  border-top: 1px solid rgba(255,255,255,0.07);
+  font-family: 'DM Mono', monospace;
+  font-size: 0.66rem;
+  letter-spacing: 0.08em;
+  color: rgba(245,240,232,0.35);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .bg-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+  nav { padding: 1rem 1.5rem; }
+  .nav-links { display: none; }
+  section { padding: 4rem 1.5rem; }
+  .hero { padding: 6rem 1.5rem 3rem; }
+  .hero-decoration { display: none; }
+  .hero-rule { left: 1.5rem; right: 1.5rem; }
+  .divider { margin: 0 1.5rem; }
+  .stats-strip { grid-template-columns: repeat(2, 1fr); }
+  .contact-grid { grid-template-columns: 1fr; }
+  footer { padding: 1.8rem 1.5rem; flex-direction: column; text-align: center; }
+}
+@media (max-width: 480px) {
+  .stats-strip { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#top" class="nav-logo">Rajaram S.</a>
+  <div class="nav-links">
+    <a href="#skills">Modules</a>
+    <a href="#experience">Experience</a>
+    <a href="#achievements">Achievements</a>
+    <a href="#background">Background</a>
+    <a href="#contact">Contact</a>
+    <a href="mailto:raja2513ra@gmail.com" class="nav-resume">Get in touch</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-rule"></div>
+  <div class="hero-tag">Open to HRIS / HR Operations Opportunities</div>
+  <h1>Rajaram <em>S</em></h1>
+  <p class="hero-role">HRIS Analyst<span class="sep">/</span>HR Operations Analyst<span class="sep">/</span>HRMS &amp; Payroll Application Support</p>
+  <p class="hero-sub">4 years 5 months configuring and supporting Payroll, Time Tracking, Time Off &amp; Absence, and Employee Lifecycle modules for SME clients on a multi-tenant HRMS platform — with hands-on Workday HCM training layered on top for platform-agnostic depth.</p>
+  <div class="hero-cta">
+    <a href="#experience" class="btn filled">View Experience</a>
+    <a href="#contact" class="btn">Get in Touch</a>
+  </div>
+  <div class="hero-chips">
+    <a class="hero-chip" href="mailto:raja2513ra@gmail.com">raja2513ra@gmail.com</a>
+    <a class="hero-chip" href="tel:+919488120199">+91 94881 20199</a>
+    <a class="hero-chip" href="https://linkedin.com/in/rajaram13" target="_blank" rel="noopener">linkedin.com/in/rajaram13</a>
+    <span class="hero-chip highlight">Chennai, India</span>
+  </div>
+  <div class="hero-decoration">HRIS</div>
+</section>
+
+<!-- AT A GLANCE / STATS STRIP -->
+<div class="stats-strip">
+  <div class="stat-item">
+    <div class="stat-num">→</div>
+    <div class="stat-label">Focus area — HRMS Application Support (multi-client, multi-module SaaS)</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">4y 5m</div>
+    <div class="stat-label">Experience — Nov 2021 – Mar 2026</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">100+</div>
+    <div class="stat-label">Incidents resolved — Payroll, Attendance, Leave</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">~95%</div>
+    <div class="stat-label">SLA adherence</div>
+  </div>
+</div>
+
+<hr class="divider" style="border-color: rgba(255,255,255,0.08); margin: 0 3rem;">
+
+<!-- MODULES / SKILLS -->
+<section id="skills">
+  <div class="section-label">01 · Skill matrix</div>
+  <h2>Configured Like an<br>HRMS Admin Panel.</h2>
+  <p class="sec-desc">Each group below is a live area of hands-on configuration and support work — the modules an HRMS admin panel would list.</p>
+
+  <div class="skills-grid">
+    <div class="skill-group">
+      <div class="skill-group-title">Payroll Support</div>
+      <div class="skill-group-sub">Statutory configuration, master data and RCA for miscalculations.</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Earnings &amp; Deductions (HRA, DA, TA, EPF, ESI, Prof. Tax)</span>
+        <span class="skill-tag">TDS Configuration &amp; Computation — Old / New Regime</span>
+        <span class="skill-tag">Payroll Master Data Setup</span>
+        <span class="skill-tag">Bulk Payroll Data Import</span>
+        <span class="skill-tag">Integrated Attendance-to-Payroll Processing</span>
+        <span class="skill-tag">Payslip &amp; Pay Process Report Generation</span>
+        <span class="skill-tag">Payroll Miscalculation RCA</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <div class="skill-group-title">Time Tracking</div>
+      <div class="skill-group-sub">Attendance hardware, geofencing and sync-failure diagnosis.</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Biometric Device Integration</span>
+        <span class="skill-tag">Geofence &amp; Mobile Check-in Configuration</span>
+        <span class="skill-tag">Shift &amp; Timesheet Rules</span>
+        <span class="skill-tag">Holiday Calendar Setup</span>
+        <span class="skill-tag">Bulk Employee Data Import</span>
+        <span class="skill-tag">Sync Failure Diagnosis &amp; Resolution</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <div class="skill-group-title">Time Off &amp; Absence Management</div>
+      <div class="skill-group-sub">Eligibility rules, approval chains and balance corrections.</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Leave Type &amp; Eligibility Configuration</span>
+        <span class="skill-tag">Multi-level Approver Hierarchies</span>
+        <span class="skill-tag">Leave Balance Import &amp; Correction</span>
+        <span class="skill-tag">OD / Permission / Missed Punch Workflows</span>
+        <span class="skill-tag">Backdated &amp; Offline Attendance Workflows</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <div class="skill-group-title">Employee Lifecycle</div>
+      <div class="skill-group-sub">Pre-hire through termination process support.</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Onboarding</span>
+        <span class="skill-tag">Transfers</span>
+        <span class="skill-tag">Promotions</span>
+        <span class="skill-tag">Offboarding</span>
+        <span class="skill-tag">Pre-Hire to Termination Process Support</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <div class="skill-group-title">Application Support</div>
+      <div class="skill-group-sub">Incident lifecycle ownership across a multi-client book.</div>
+      <div class="skill-tags">
+        <span class="skill-tag">L1 / L2 Incident Management</span>
+        <span class="skill-tag">Root Cause Analysis (RCA)</span>
+        <span class="skill-tag">SLA Management (~95% adherence)</span>
+        <span class="skill-tag">Escalation Management</span>
+        <span class="skill-tag">Functional &amp; Regression Testing</span>
+        <span class="skill-tag">Custom Report Generation</span>
+        <span class="skill-tag">Multi-Client Support</span>
+        <span class="skill-tag">Client Communication (Email / Chat / Calls / Meetings)</span>
+        <span class="skill-tag">Product Demos</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <div class="skill-group-title">Tools &amp; Concepts</div>
+      <div class="skill-group-sub">The everyday toolkit behind the configuration work.</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Ticketing / Incident Workflows</span>
+        <span class="skill-tag">Microsoft 365</span>
+        <span class="skill-tag">RDP-based Server Configuration</span>
+        <span class="skill-tag">Biometric Integration</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="skill-note">
+    <span class="tag">New</span>
+    <div>
+      <h3>Additional platform — Workday HCM</h3>
+      <p>Hands-on sandbox tenant practice in Core HCM (Supervisory Orgs, Staffing Models, Hire-to-Terminate Business Processes), Compensation, Security (Role &amp; User-Based Groups, Domain Policies), Business Process Framework, Report Writing &amp; Calculated Fields, and Integrations (EIB, Core Connector, PICOF/PECI) — added for platform-agnostic technical depth alongside primary application-support experience.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-label">02 · Change log</div>
+  <h2>Professional<br>Experience.</h2>
+  <p class="sec-desc">The full log of work across each role.</p>
+
+  <div class="exp-timeline">
+
+    <div class="exp-item">
+      <div class="exp-period">Nov 2021 — Mar 2026</div>
+      <div class="exp-role">Technical Support Engineer — HRMS Application</div>
+      <div class="exp-company">Clocktos Infotech, Chennai</div>
+      <div class="exp-context">Palgeo HR Software is a modern cloud-based HRMS platform serving Indian SMEs in a multi-client support model — covering Payroll, Time Tracking, Time Off &amp; Absence Management, and Employee Lifecycle modules.</div>
+
+      <div class="exp-subhead">▸ Time Tracking</div>
+      <ul class="exp-points">
+        <li>Gathered requirements from clients and configured end-to-end Attendance module: created Organization Profiles, set up Institutes, Shifts, Geofence Locations, and Biometric device integrations.</li>
+        <li>Imported and managed employee data via bulk Excel upload; configured holiday calendars, timesheet rules (permissions, grace time), and location-based shift assignments.</li>
+        <li>Implemented biometric hardware integration: installed Bio Service on client servers via RDP, validated network connectivity between devices and the HRMS, and ensured real-time attendance synchronization through API calls.</li>
+        <li>Diagnosed and resolved attendance synchronization failures by analyzing Bio Service logs, identifying network/configuration root causes (e.g., device unreachable errors), and restoring data integrity across employee timesheets.</li>
+        <li>Handled geofence-related mobile check-in issues: analyzed configuration vs. connectivity vs. backend (including face recognition service expiry) root causes and escalated backend issues to the development team with follow-through to resolution.</li>
+      </ul>
+
+      <div class="exp-subhead">▸ Time Off &amp; Absence Management</div>
+      <ul class="exp-points">
+        <li>Gathered requirements from clients and configured Leave module: set periodic types, created leave types with eligibility/condition rules, performed bulk employee leave balance imports, and set up multi-level approver hierarchies.</li>
+        <li>Extended same configuration to OD, Permissions, Missed Punch, Backdated Attendance, and Offline Attendance workflows.</li>
+        <li>Resolved leave balance mismatches, incorrect approver routing, and wrongly configured eligibility rules through root cause analysis and functional testing prior to production fixes.</li>
+      </ul>
+
+      <div class="exp-subhead">▸ Payroll Management</div>
+      <ul class="exp-points">
+        <li>Gathered requirements from clients and configured Payroll module: set period schedules, configured earnings (Allowances: HRA, DA, TA) and deductions (EPF, ESI, Professional Tax) in master data; performed bulk payroll data imports via Excel templates.</li>
+        <li>Managed integrated payroll processing where attendance and leave data automatically fed into payroll calculations for payslip and pay process report generation.</li>
+        <li>Configured TDS module: set up declaration date and investment-proof document submission date rules, and configured tax-saving sections (80C, home loan interest benefit, etc.) for rebate calculation; generated post-payroll TDS reports under both old and new tax regimes.</li>
+        <li>Diagnosed and resolved critical payroll miscalculations by analyzing salary components, earning/deduction rules, and system-level configurations, restoring payroll accuracy within SLA.</li>
+      </ul>
+
+      <div class="exp-subhead">▸ Application Support &amp; Incident Management</div>
+      <ul class="exp-points">
+        <li>Managed full incident lifecycle — identification → prioritization → tracking → resolution → closure — using structured ticketing workflows; achieved ~95% SLA adherence across 100+ client incidents.</li>
+        <li>Supported complete employee lifecycle processes: onboarding, transfers, promotions, offboarding, and mobile app issues (check-in/checkout, leave apply &amp; approval).</li>
+        <li>Introduced structured troubleshooting checklists and RCA documentation templates, measurably reducing repeat incident frequency across the support team.</li>
+        <li>Collaborated with development teams on bug fixes, escalations, and preventive corrective actions; conducted functional testing and validation of all fixes prior to production deployment.</li>
+        <li>Interacted with clients daily via email, calls, chat, and meets; delivered full Palgeo HR Software product demos to prospective clients.</li>
+        <li>Generated custom reports based on client needs and provided day-to-day query resolution across all modules.</li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-period">Jan 2020 — Jun 2021</div>
+      <div class="exp-role">Quality Control Engineer</div>
+      <div class="exp-company">Avalon Technologies Pvt Ltd, Chennai</div>
+      <ul class="exp-points" style="margin-top:0.8rem;">
+        <li>Monitored production processes for quality compliance; inspected materials and electrical systems for defects.</li>
+        <li>Prepared defect analysis reports and root cause documentation; collaborated cross-functionally to implement corrective actions.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ACHIEVEMENTS -->
+<section id="achievements">
+  <div class="section-label">03 · Resolved tickets</div>
+  <h2>Key<br>Achievements.</h2>
+
+  <div class="achieve-grid">
+    <div class="achieve-card">
+      <div class="achieve-num">~95%</div>
+      <p>SLA adherence across 100+ client incidents</p>
+    </div>
+    <div class="achieve-card">
+      <div class="achieve-num">100+</div>
+      <p>Incidents managed end-to-end, identification to closure</p>
+    </div>
+    <div class="achieve-card">
+      <div class="achieve-num">4</div>
+      <p>HRMS modules supported: Payroll, Time, Leave, Lifecycle</p>
+    </div>
+    <div class="achieve-card">
+      <div class="achieve-num">4y 5m</div>
+      <p>Continuous multi-client HRMS application support</p>
+    </div>
+  </div>
+
+  <ul class="achieve-list">
+    <li>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+      <span>Resolved payroll miscalculation issues impacting multiple clients through in-depth analysis of salary components, earning/deduction rules, and system configurations — restoring accuracy within SLA every time.</span>
+    </li>
+    <li>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+      <span>Diagnosed and eliminated recurring attendance synchronization failures by correcting data integrity issues across employee timesheets and HRMS records for multiple clients.</span>
+    </li>
+    <li>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+      <span>Introduced structured troubleshooting checklists and RCA documentation templates, reducing repeat incident frequency across the support team.</span>
+    </li>
+    <li>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+      <span>Maintained ~95% SLA compliance while handling 100+ incidents, demonstrating consistent high performance in a client-facing, multi-client support environment.</span>
+    </li>
+  </ul>
+</section>
+
+<hr class="divider">
+
+<!-- BACKGROUND -->
+<section id="background">
+  <div class="section-label">04 · Background</div>
+  <h2>Certification, Education<br>&amp; Languages.</h2>
+
+  <div class="bg-grid">
+    <div>
+      <div class="edu-box">
+        <div class="edu-box-label">Certification</div>
+        <div class="edu-title">Workday HCM Certification Online Training</div>
+        <div class="edu-meta">Uptaught Edtech Pvt Ltd, Bengaluru</div>
+        <div class="edu-detail">Apr 2026 – Jun 2026</div>
+        <p class="edu-desc">Hands-on sandbox tenant practice across Core HCM, Compensation, Security, Business Process Framework, Report Writing, Calculated Fields, EIB, and Core Connectors — undertaken to broaden platform-agnostic HRIS/HRMS configuration skills alongside primary application-support experience.</p>
+      </div>
+      <div class="edu-box">
+        <div class="edu-box-label">Education</div>
+        <div class="edu-title">B.Tech — Electrical &amp; Electronics Engineering</div>
+        <div class="edu-meta">SASTRA Deemed University, Kumbakonam</div>
+        <div class="edu-detail">2015 – 2019 · First Class · CGPA 6.0/10</div>
+      </div>
+    </div>
+
+    <div class="lang-panel">
+      <div class="edu-box-label">Languages</div>
+      <div class="lang-row"><span>English</span><span class="lang-tag">PROFESSIONAL</span></div>
+      <div class="lang-row"><span>Tamil</span><span class="lang-tag">NATIVE</span></div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" style="border-color: rgba(255,255,255,0.08); margin: 0 3rem;">
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label">05 · Contact</div>
+  <h2>Let's Talk About Your<br>HR Operations.</h2>
+  <p class="contact-sub">Open to HRIS Analyst, HR Operations Analyst, HR Shared Services, and HRMS/Payroll Application Support roles — client-facing or shared-services.</p>
+  <div class="contact-grid">
+    <div class="contact-item">
+      <div class="contact-icon">📧</div>
+      <div>
+        <div class="contact-label">Email</div>
+        <div class="contact-value"><a href="mailto:raja2513ra@gmail.com">raja2513ra@gmail.com</a></div>
+      </div>
+    </div>
+    <div class="contact-item">
+      <div class="contact-icon">📱</div>
+      <div>
+        <div class="contact-label">Phone</div>
+        <div class="contact-value"><a href="tel:+919488120199">+91 94881 20199</a></div>
+      </div>
+    </div>
+    <div class="contact-item">
+      <div class="contact-icon">💼</div>
+      <div>
+        <div class="contact-label">LinkedIn</div>
+        <div class="contact-value"><a href="https://linkedin.com/in/rajaram13" target="_blank">linkedin.com/in/rajaram13</a></div>
+      </div>
+    </div>
+    <div class="contact-item">
+      <div class="contact-icon">📍</div>
+      <div>
+        <div class="contact-label">Location</div>
+        <div class="contact-value">Chennai, India</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>RAJARAM S · CHENNAI, INDIA</span>
+  <span>LAST UPDATED JUL 2026</span>
+</footer>
+
+</body>
+</html>
